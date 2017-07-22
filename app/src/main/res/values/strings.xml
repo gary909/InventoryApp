@@ -55,7 +55,7 @@
 
     <string name="delete">Delete</string>
 
-    <string name="editor_delete_product_successful">Product deleted!</string>
+    <string name="editor_delete_product_success">Product deleted!</string>
 
     <string name="editor_delete_product_failed">Error deleting product</string>
 

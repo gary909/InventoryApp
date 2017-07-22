@@ -43,12 +43,11 @@ public class ProductDetail extends AppCompatActivity implements LoaderManager.Lo
     @BindView(R.id.detail_price) TextView mPriceTextView;
     @BindView(R.id.btn_order) Button buttonOrder;
     @BindView(R.id.plus_btn) Button buttonPlus;
-
-    private boolean mProductHasChanged = false;
     Uri mCurrentProductUri;
     Uri mUri;
-    private Bitmap mBitmap;
     Context context;
+    private boolean mProductHasChanged = false;
+    private Bitmap mBitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,7 +105,7 @@ public class ProductDetail extends AppCompatActivity implements LoaderManager.Lo
         intent.setData(Uri.parse("mailto:"));// only email apps should handle this
         intent.putExtra(Intent.EXTRA_SUBJECT, "Order " + nameProduct);
         if(intent.resolveActivity(getPackageManager()) != null) {
-            startActivity(intent.createChooser(intent, "Send Email"));
+            startActivity(Intent.createChooser(intent, "Send Email"));
         }
     }
 
@@ -231,7 +230,7 @@ public class ProductDetail extends AppCompatActivity implements LoaderManager.Lo
             if (rowsDeleted == 0) {
                 Toast.makeText(this, getString(R.string.editor_delete_product_failed), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, getString(R.string.editor_delete_product_successful), Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.editor_delete_product_success), Toast.LENGTH_SHORT).show();
             }
             finish();
         }
